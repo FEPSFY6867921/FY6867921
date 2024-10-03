@@ -1,1 +1,11 @@
+const canvasSketch = require('canvas-sketch');
+const random = require('canvas-sketch-util/random');
 
+const settings = {
+  dimensions: [1080, 1080 ]
+};
+
+const sketch = ({ context, width, height }) => {
+  const agents = [];
+
+  for (Let i = 0; i < 40; i++) {
