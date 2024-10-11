@@ -20,7 +20,7 @@ p {
 }
 
 ul {
-  text-align:justify; font-family: Arial; font-size: 14px; color:black;
+  list-style-type: square; font-family: Arial; font-size: 14px; color:black;
 }
 
 /* Navbar container */
