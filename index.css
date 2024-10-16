@@ -107,7 +107,7 @@ div {
   display: block;
 
 /* Style the search box */
-#mySearch {
+.mySearch {
   width: 100%;
   font-size: 18px;
   padding: 11px;
