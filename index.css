@@ -1,3 +1,7 @@
+/*Centre the menubar, make menubar words bold*/
+/* #00205B, #B89D18, #437C90, #CDD3D5, #D6EEFF */
+/*Surrey blue, Surrey gold, teal, silver, cloud blue*/
+
 /* Customises the background*/
 body {
   background-color:white;
@@ -17,6 +21,10 @@ h2 {
 h3 {
   text-align:left; font-family:Calibri; font-size: 16 px; color:black;
 }
+
+h4 {
+  text-align:center; font-family:Tahoma; font-size: 36px; color:#003fb3 
+ }
 
 /* Customises the paragraph section */
 p {
@@ -101,6 +109,7 @@ ul {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
 
 /* Style the search box */
 .mySearch {
@@ -108,3 +117,4 @@ ul {
   font-size: 18px;
   padding: 11px;
   border: 1px solid #ddd;
+} 
