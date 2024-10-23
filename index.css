@@ -4,22 +4,22 @@
 
 /* Customises the background*/
 body {
-  background-color:white;
+  background-color:#D6EEFF;
 }
 
 /*Customises the heading 1*/
 h1 {
-  text-align:center; font-family:Tahoma; font-size: 40px; color:red;
+  text-align:center; font-family:Tahoma; font-size: 40px; color:#003fb3;
 }
 
 /*Customises the heading 2*/
 h2 {
-  text-align:center; font-family:Calibri; font-size: 20 px; color:blue;
+  text-align:center; font-family:Calibri; font-size: 20 px; color:#003fb3;
 }
 
 /*Customises the heading 3*/
 h3 {
-  text-align:left; font-family:Calibri; font-size: 16 px; color:black;
+  text-align:left; font-family:Calibri; font-size: 16 px; color:#003fb3;
 }
 
 h4 {
@@ -41,7 +41,8 @@ ul {
 .navbar {
   overflow: hidden;
   font-family: Arial;
-  background-color: blue;
+  background-color: #002d82;
+  align-items: center;
 }
 
 /* Links inside of navbar */
@@ -57,7 +58,7 @@ ul {
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #B89D18;
 }
 
 .center {
@@ -76,19 +77,19 @@ ul {
   font-size: 15px;  
   color: white;
   padding: 15px 89.8px;
-  background-color: blue;
+  background-color: #002d82;
   text-decoration: none;
   font-family: Arial;
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #B89D18;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: green;
+  background-color: #437C90;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -104,7 +105,7 @@ ul {
 }
 
 .dropdown-content a:hover {
-  background-color: orange;
+  background-color: #CDD3D5;
 }
 
 .dropdown:hover .dropdown-content {
