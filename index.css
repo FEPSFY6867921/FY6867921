@@ -41,6 +41,10 @@ ol {
   list-style-type: square; font-family: Arial; font-size: 14px; color:black;
 }
 
+dl {
+  list-style-type: square; font-family: Arial; font-size: 14px; color:black;
+}
+
 /* Navbar container */
 .navbar {
   overflow: hidden;
