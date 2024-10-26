@@ -20,5 +20,3 @@ const sketch = () => {
       for (Let j = 0; j < 5; j++) {
         x = 100 + (w + gap) * i;
         y = 100 + (h + gap) * j;
-
-  
