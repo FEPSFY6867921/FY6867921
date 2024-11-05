@@ -168,4 +168,5 @@ tr:nth-child(even) {
 
 div:target {
   border: 2px solid #003fb3;
+  background-color: #B89D18;
 }
