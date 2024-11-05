@@ -60,8 +60,72 @@
   </ul>
 </main>
 
-<a href="Conference Project PP.pptx" download>
-  <img src="PowerPointPhoto.png" width="100" height="100" text-align = "center" alt="PowerPoint">
-</a>
+<style>
+  .button {
+    width: 200px;
+    margin: 40px;
+}
 
-<p>Click on PowerPoint icon to download a copy of the PowerPoint</p>
+.button a {
+    display: block;
+    height: 50px;
+    width: 200px;
+    color: white;
+    font: 17px/50px sans-serif,Helvetica;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    background: #003fb3; 
+}
+
+.button p {
+    background: #437C90;
+    display: block;
+    height: 40px;
+    width: 180px;
+    margin: -50px 0 0 10px;
+    text-align: center;
+    font: 14px/45px sans-serif,Helvetica;
+    color: black;
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: margin 0.7s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    -moz-transition: margin 0.7s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    -o-transition: margin 0.7s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    -ms-transition: margin 0.7s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    transition: margin 0.7s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+}
+
+
+.button a, p {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 13px;
+    -webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    -moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.button:hover .bottom { 
+	margin: -10px 0 0 10px 
+}
+
+.button:hover .top {
+    margin: -80px 0 0 10px;
+    line-height: 35px;
+}
+</style>
+<div class="button">
+	<a href="Conference Project PP.pptx">Download</a>
+	<p class="top">Filename: Project.pptx</p>
+	<p class="bottom">Size: 3.4MB</p>
+</div>
+
+
+
+
+<!-- <a href="Conference Project PP.pptx" download> -->
+  <!-- <img src="PowerPointPhoto.png" width="100" height="100" text-align = "center" alt="PowerPoint"> -->
+<!-- </a> -->
+
+<!-- <p>Click on PowerPoint icon to download a copy of the PowerPoint</p> -->
