@@ -1,9 +1,7 @@
 const canvasSketch = require('canvas-sketch');
 
 const settings = {
-  dimensions: A4;
-  pixelsPerInch: 300,
-  orientation: 'landscape'
+  dimensions: [ 1080, 1080 ]
 };
 
 const sketch = () => {
@@ -11,12 +9,21 @@ const sketch = () => {
     context.fillStyle = 'white';
     context.fillRect(0, 0, width, height);
 
-    const w = 60;
-    const h = 60;
-    const gap = 20;
-    let x, y;
+    const point = new Point(800, 400, 10);
 
-    for (Let i = 0; i < 40; i++) {
-      for (Let j = 0; j < 5; j++) {
-        x = 100 + (w + gap) * i;
-        y = 100 + (h + gap) * j;
+    context.beginPath();
+    context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+    context.fillStyle = 'black';
+    context.fillRect = '#000000';
+  };
+};
+
+canvasSketch(sketch, settings);
+
+class Point {
+  constructor(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+  }
+}
