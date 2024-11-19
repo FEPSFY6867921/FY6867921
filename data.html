@@ -74,4 +74,51 @@
   In an ideal world, ML and Data Mining would be used with the same intentions, and not be used for nefarious purposes. However, with cybercriminals gaining access to Data Mining technologies, companies have been forced to use Machine Learning algorithms to help defend against these attacks. Since ML and Data Mining are “complementary in nature”, it allows for “development of highly predictive models” <i><b><a href="refs.html#Shams">(Shams, 2023)</a></b></i>, used for analysing data patterns and, identifying possible targets for cybercriminals and improving security measures.
 </p>
 
+<div id="last-updated">Loading last update time...</div>
+
+    <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
+      Verify Last Modified Time
+    </button>
+
+    <script>
+      async function getLastUpdatedTime() {
+        const username = 'FEPSFY6867921';
+        const repo = 'FY6867921';
+
+        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+
+        try {
+          const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/vnd.github.v3+json',
+            }
+          });
+
+        if (!response.ok) {
+          throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+        }
+
+        const commits = await response.json();
+        if (commits && commits.length > 0) {
+          const lastCommitDate = new Date(commits[0].commit.committer.date);
+          document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+        } else {
+            document.getElementById('last-updated').innerText = `No commits found in the repository.`;
+        }
+        } catch (error) {
+          console.error('Error fetching the last updated time:', error);
+          document.getElementById('last-updated').innerText = `Error fetching update time. Please check the rerpository details.`;
+        }
+      }
+
+      async function verifyLastUpdatedTime() {
+        document.getElementById('last-updated').innerText = 'Verifying...';
+        await getLastUpdatedTime();
+        alert("Last modified time has been successfully verifed from GitHub API.");
+      }
+
+      window.onload = getLastUpdatedTime;
+    </script>
+    
 </html>
