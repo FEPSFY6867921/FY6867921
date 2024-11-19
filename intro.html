@@ -145,8 +145,7 @@
         const MLCount = displayWordCount("ML_InText");
         const CyberCount = displayWordCount("Cyber_InText");
         const DataCount = displayWordCount("Data_InText");
-        const totalWordCount = IntroductionCount + MLCount + CyberCount + DataCount;
-        document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+        document.getElementById("totalWordCount").innerText = `Total word count on this page: ${IntroductionCount}`;
       }
 
       window.onload = displayTotalWordCount;
