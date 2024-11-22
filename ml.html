@@ -44,6 +44,8 @@
   </div>
 </div>
 
+<div id="content">
+
  <p>
   <h2><u>What is Machine Learning?</u></h2>
   </p>
@@ -73,77 +75,93 @@
     <p>
       Another common example is product recommendations on retail websites, such as Amazon and online retailers. It uses ML to observe the users purchases, clicks and search history. The algorithm then filters the information to recommend products based on what it has observed about the user. Many different algorithms are used for this, but Collaborative Filtering is most commonly used. <i><b><a href="refs.html#NVIDIA">(NVIDIA, 2021)</a></b></i>
     </p>
+  </div>
+
   </body>
 
-    <div id="last-updated">Loading last update time...</div>
-
+  <div id="last-updated">Loading last update time...</div>
+    <!-- Verify Button -->
     <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
-      Verify Last Modified Time
+        Verify Last Modified Time
     </button>
-
     <script>
-      async function getLastUpdatedTime() {
-        const username = 'FEPSFY6867921';
-        const repo = 'FY6867921';
-
-        const url = `https://api.github.com/repos/${username}/${repo}/commits`;
-
-        try {
-          const response = await fetch(url, {
-            method: 'GET',
-            headers: {
-              'Accept': 'application/vnd.github.v3+json',
+        async function getLastUpdatedTime() {
+          const username = 'FEPSFY6867921';
+          const repo = 'FY6867921';
+           
+            const url = `https://api.github.com/repos/${username}/${repo}/commits`;
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/vnd.github.v3+json',
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
+                }
+                const commits = await response.json();
+                if (commits && commits.length > 0) {
+                    const lastCommitDate = new Date(commits[0].commit.committer.date);
+                   
+                    // Displaying the time on load
+                    document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
+                } else {
+                    document.getElementById('last-updated').innerText = 'No commits found in the repository.';
+                }
+            } catch (error) {
+                console.error('Error fetching the last updated time:', error);
+                document.getElementById('last-updated').innerText = 'Error fetching update time. Please check the repository details.';
             }
-          });
-
-        if (!response.ok) {
-          throw new Error(`Error fetching data: ${response.status} - ${response.statusText}`);
         }
-
-        const commits = await response.json();
-        if (commits && commits.length > 0) {
-          const lastCommitDate = new Date(commits[0].commit.committer.date);
-          document.getElementById('last-updated').innerText = `Last Modified Time: ${lastCommitDate.toLocaleString()}`;
-        } else {
-            document.getElementById('last-updated').innerText = `No commits found in the repository.`;
+        // Function to verify the last update time by re-fetching it from the API
+        async function verifyLastUpdatedTime() {
+            document.getElementById('last-updated').innerText = 'Verifying...';
+            await getLastUpdatedTime();
+            alert("Last modified time has been successfully verified from GitHub API.");
         }
-        } catch (error) {
-          console.error('Error fetching the last updated time:', error);
-          document.getElementById('last-updated').innerText = `Error fetching update time. Please check the rerpository details.`;
-        }
-      }
-
-      async function verifyLastUpdatedTime() {
-        document.getElementById('last-updated').innerText = 'Verifying...';
-        await getLastUpdatedTime();
-        alert("Last modified time has been successfully verifed from GitHub API.");
-      }
-
-      window.onload = getLastUpdatedTime;
-    </script>
-
-        <p id="totalWordCount"></p>
-
-    <hr>
-
-    <script>
-      function displayWordCount(sectionId, outputId) {
-        const text = document.getElementById(sectionId).textContent;
-        const wordArray = text.trim().split(/\s\+/);
-        const wordCount = wordArray.length;
-        return wordCount;
-      }
-
-      function displayTotalWordCount() {
-        const IntroductionCount = displayWordCount("Introduction_InText");
-        const MLCount = displayWordCount("ML_InText");
-        const CyberCount = displayWordCount("Cyber_InText");
-        const DataCount = displayWordCount("Data_InText");
-        const totalWordCount = IntroductionCount + MLCount + CyberCount + DataCount;
-        document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
-      }
-
-      window.onload = displayTotalWordCount;
+        // Initial load to display the time on page load
+        window.onload = getLastUpdatedTime;
     </script>
     
+
+    <div id="wordCountDisplay"></div>
+
+    <script>
+        // Function to calculate word count for a specific section
+        function calculateSectionWordCount(selector) {
+            const section = document.querySelector(selector);
+
+            if (!section) {
+                console.error(`No element found with selector: ${selector}`);
+                return 0;
+            }
+
+            // Get the text content of the section
+            const text = section.innerText || section.textContent;
+
+            // Match words using a regular expression
+            const words = text.match(/\b\w+\b/g);
+
+            // Return the word count (if no words, return 0)
+            return words ? words.length : 0;
+        }
+
+        // Function to display the word count
+        function displaySectionWordCount(selector) {
+            const wordCount = calculateSectionWordCount(selector);
+            const displayElement = document.getElementById('wordCountDisplay');
+            
+            if (displayElement) {
+                displayElement.textContent = `Word Count (${selector}): ${wordCount}`;
+            }
+        }
+
+        // Run the word count calculation when the page loads
+        window.onload = () => {
+            displaySectionWordCount('#content');
+        };
+        </script>
+
 </html>
+
