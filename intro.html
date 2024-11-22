@@ -45,7 +45,7 @@
 </div>
 
     <p>
-  <h2><u>Introduction</u></h2>
+  <h2 id="Introduction"><u>Introduction</u></h2>
   </p>
 
 <p>
@@ -80,3 +80,29 @@
     <p>
       <h5>Figure 2: Web-attacks globally 24/10/2024 at 13:37 <i><a href="refs.html#Radware">(Radware, 2016)</a></i></h5>
     </p>
+
+
+<p id="totalWordCount"></p>
+
+<hr>
+
+<script>
+
+function displayWordCount(sectionId, outputId) {
+  const text = document.getElementById(sectionId).textContent;
+  const wordArray = text.trim().split(/\s+/);
+  const wordCount = wordArray.length;
+  return wordCount;
+}
+
+function displayTotalWordCount() {
+  const IntroductionCount = displayWordCount("Introduction");
+  const MLCount = displayWordCount("ML");
+  const CyberCount = displayWordCount("Cyber");
+  const DataCount = displayWordCount("Data");
+  const totalWordCount = IntroductionCount + MLCount + CyberCount + DataCount;
+  document.getElementById("totalWordCount").innerText = `Total word count: ${totalWordCount}`;
+}
+
+window.onload = displayTotalWordCount;
+</script>
