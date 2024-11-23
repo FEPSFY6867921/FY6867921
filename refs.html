@@ -19,29 +19,66 @@
   </head>
   <body><h1><marquee behavior="scroll" direction="left"><b><i><u>Investigating the effectiveness of Machine Learning in Cybersecurity and its defences against Data Mining</u></i></b></marquee></h1>
     
-<div class ="navbar">
-  <a href="index.html">Abstract</a>
-  <div class="dropdown">
-    <button class="dropbtn">Research 
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="intro.html">Introduction</a>
-      <a href="ml.html">Machine Learning</a>
-      <a href="cyber.html">Cybersecurity</a>
-      <a href="data.html">Data Mining</a>
+    <div class ="navbar">
+      <a href="index.html">Abstract</a>
+      <div class="dropdown">
+        <button class="dropbtn">Research 
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="intro.html">Introduction</a>
+          <a href="ml.html">Machine Learning</a>
+          <a href="cyber.html">Cybersecurity</a>
+          <a href="data.html">Data Mining</a>
+        </div>
+      </div>
+      <a href="pp.html">PowerPoint and Recording</a>
+      <a href="refs.html">References</a>
+      
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    
+      <div class="search-box">
+        <div class=""row>
+          <input type="text" id="input-box" placeholder="Search..." autocomplete="off">
+          <button>Search</button>
+        </div>
+        <div class="result-box">
+          <script>
+            let availableKeywords = [
+             'Abstract',
+             'Introduction',
+             'Machine Learning', 
+             'Data Mining',
+             'PowerPoint',
+             'Recording',
+             'References', 
+             ];
+    
+             const resultsBox = document.querySelector(".result-box");
+             const inputBox = document.querySelector(".input-box");
+    
+             inputBox.onkeyup = function(){
+                  let result = [];
+                  let input = inputBox.value;
+                  if(input.length){
+                    result = availableKeywords.filter((keyword)=>{
+                      return keyword.toLowerCase().includes(input.toLowerCase());
+                    });
+                    console.log(result) ; 
+                  }
+                  display(result);
+             }
+    
+             function display(result){
+                const content = result.map((list)=>{
+                  return "<li> " + list + "</li>"
+                }); 
+                resultsBox.innerHTML = "<ul>" + content.join('') + "</ul> "
+             }
+          </script>
+        </div>
+      </div>
     </div>
-  </div>
-  <a href="pp.html">PowerPoint and Recording</a>
-  <a href="refs.html">References</a>
-  
-  <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-</div>
     
 <p>
   <h2><u>References:</u></h2>
