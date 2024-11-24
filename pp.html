@@ -80,8 +80,14 @@
         </div>
       </div>
     </div>
-    
-    <video autoplay muted loop src="Background video.mp4" type="video/mp4" position="absolute">
+   
+    <div class="background-video-container">  
+
+    <video class="background-video" autoplay muted loop>
+      <source src="Background video.mp4" type="video/mp4" position="absolute">
+      </video> 
+      
+<div class="overlay-content">
 
 <main>
  <p>
@@ -101,11 +107,16 @@
 
 <div class="button">
 	<a href="Conference Project PP.pptx">Download</a>
-	<p class="top">Filename: Project.pptx</p>
+	<p class="top">Project.pptx</p>
 	<p class="bottom">Size: 3.4MB</p>
 </div>
 
+</div>
+
+<div class="foreground-video-container">
 <video src="Conference Project PP.mp4" width="800" height="450" controls></video>
+</div>
+</div>
 
 </body>
 
