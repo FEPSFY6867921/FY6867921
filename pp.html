@@ -21,61 +21,65 @@
   <body><h1><marquee behavior="scroll" direction="left"><b><i><u>Investigating the effectiveness of Machine Learning in Cybersecurity and its defences against Data Mining</u></i></b></marquee></h1>
     
     <div class ="navbar">
-      <a href="index.html">Abstract</a>
+      <a href="index.html" id="Abstract">Abstract</a>
       <div class="dropdown">
         <button class="dropbtn">Research 
           <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-          <a href="intro.html">Introduction</a>
-          <a href="ml.html">Machine Learning</a>
-          <a href="cyber.html">Cybersecurity</a>
-          <a href="data.html">Data Mining</a>
+          <a href="intro.html" id="Introduction">Introduction</a>
+          <a href="ml.html" id="Machine Learning">Machine Learning</a>
+          <a href="cyber.html" id="Cybersecurity">Cybersecurity</a>
+          <a href="data.html" id="Data Mining">Data Mining</a>
         </div>
       </div>
-      <a href="pp.html">PowerPoint and Recording</a>
-      <a href="refs.html">References</a>
+      <a href="pp.html" id="Recording">PowerPoint and Recording</a>
+      <a href="refs.html" id="References">References</a>
       
     <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
     
       <div class="search-box">
-        <div class=""row>
+        <div class="help">
           <input type="text" id="input-box" placeholder="Search..." autocomplete="off">
-          <button>Search</button>
+          <button onclick="redirectToFile()">Search</button>
         </div>
         <div class="result-box">
           <script>
-            let availableKeywords = [
-             'Abstract',
-             'Introduction',
-             'Machine Learning', 
-             'Data Mining',
-             'PowerPoint',
-             'Recording',
-             'References', 
-             ];
+            const keywordsMapping = {
+             "Abstract": "index.html",
+             "Introduction": "intro.html",
+             "Machine Learning": "ml.html",
+             "Cybersecurity": "cyber.html", 
+             "Data Mining": "data.html",
+             "PowerPoint": "pp.html",
+             "Recording": "pp.html",
+             "References": "refs.html", 
+            };
     
-             const resultsBox = document.querySelector(".result-box");
-             const inputBox = document.querySelector(".input-box");
-    
-             inputBox.onkeyup = function(){
-                  let result = [];
-                  let input = inputBox.value;
-                  if(input.length){
-                    result = availableKeywords.filter((keyword)=>{
-                      return keyword.toLowerCase().includes(input.toLowerCase());
-                    });
-                    console.log(result) ; 
-                  }
-                  display(result);
-             }
-    
-             function display(result){
-                const content = result.map((list)=>{
-                  return "<li> " + list + "</li>"
-                }); 
-                resultsBox.innerHTML = "<ul>" + content.join('') + "</ul> "
-             }
+            // Search function
+        function searchRedirect() {
+            // Get the user input
+            const keyword = document.getElementById("searchBox").value.trim().toLowerCase();
+
+            // Check if the keyword exists in the mapping
+            if (fileMapping[keyword]) {
+                // Redirect to the file
+                window.location.href = fileMapping[keyword];
+            } else {
+                // Display an alert if the keyword is not found
+                alert("Keyword not recognized! Please try again.");
+            }
+        }
+
+        // Attach event listener to the search button
+        document.getElementById("searchButton").addEventListener("click", searchRedirect);
+
+        // Allow pressing Enter to trigger the search
+        document.getElementById("searchBox").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                searchRedirect();
+            }
+        });
           </script>
         </div>
       </div>
