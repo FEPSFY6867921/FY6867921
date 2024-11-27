@@ -82,7 +82,7 @@
 </div>
 
 
-<div id="content">
+<div id="content1">
     <p>
   <h2><u>Introduction</u></h2>
   </p>
@@ -123,6 +123,7 @@
 
   <hr>
 
+  <!-- Last Update Time-->
     <div id="last-updated">Loading last update time...</div>
     <!-- Verify Button -->
     <button onclick="verifyLastUpdatedTime()" style="display: block; margin: 10px auto; padding: 8px 16px;">
@@ -168,6 +169,9 @@
         window.onload = getLastUpdatedTime;
     </script>
     
+
+<!-- Word Counter-->
+
     <div id="wordCountDisplay"></div>
 
     <script>
@@ -202,6 +206,6 @@
 
         // Run the word count calculation when the page loads
         window.onload = () => {
-            displaySectionWordCount('#content');
+            displaySectionWordCount('#content1');
         };
         </script>
